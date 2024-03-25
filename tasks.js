@@ -16,17 +16,31 @@ console.log(isUnique('abcABC')) // -> true
 console.log(isUnique('abcadef')) // -> false
  */
 
+/*вариант 1*/
 function isUnique(string) {
-    for (let i = 0; i < string.length; i++) {
-      const char = string[i];
-      if (string.lastIndexOf(char) !== i) {
-        return false;
-      }
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    if (string.lastIndexOf(char) !== i) {
+      return false;
     }
-    return true;
   }
+  return true;
+}
 
 console.log(isUnique("abcdef")); // -> true
 console.log(isUnique("1234567")); // -> true
 console.log(isUnique("abcABC")); // -> true
 console.log(isUnique("abcadef")); // -> false
+
+/**вариант 2*/
+function isUnique(string) {
+  const chars = new Set();
+  for (let i = 0; i < string.length; i++) {
+    const current = string[i];
+    if (chars.has(current)) {
+      return false;
+    }
+    chars.add(current);
+  }
+  return true;
+}
