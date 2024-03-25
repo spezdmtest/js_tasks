@@ -16,7 +16,7 @@ console.log(isUnique('abcABC')) // -> true
 console.log(isUnique('abcadef')) // -> false
  */
 
-/*вариант 1*/
+// вариант 1
 function isUnique(string) {
   for (let i = 0; i < string.length; i++) {
     const char = string[i];
@@ -32,7 +32,7 @@ console.log(isUnique("1234567")); // -> true
 console.log(isUnique("abcABC")); // -> true
 console.log(isUnique("abcadef")); // -> false
 
-/**вариант 2*/
+// вариант 2
 function isUnique(string) {
   const chars = new Set();
   for (let i = 0; i < string.length; i++) {
@@ -45,20 +45,12 @@ function isUnique(string) {
   return true;
 }
 
-/** 2
- * ### Плоский массив
-
-Напишите функцию, принимающая массив с вложенными массивами и 
-распакуйте в результирующий плоский массов. В результате должны получить 
-новый одномерный массив.
-
-**Input**: Array
-**Output**: Array
-
-function flatten(array) {
-  // todo
+// вариант 3
+function isUnique(string) {
+	return new Set(string).size === string.length;
 }
 
-console.log(flatten([[1], [[2, 3]], [[[4]]]])) // -> [1, 2, 3, 4]
-
- **/
+console.log(isUnique('abcdef')) // -> true
+console.log(isUnique('1234567')) // -> true
+console.log(isUnique('abcABC')) // -> true
+console.log(isUnique('abcadef')) // -> false 
